@@ -30,4 +30,18 @@ const changeLanguage = (lang: 'en' | 'es') => {
   </button>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: $primary-color;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &.secondary {
+    background-color: $secondary-color;
+  }
+}
+</style>
