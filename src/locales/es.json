@@ -20,7 +20,7 @@
     "inFavorites": "En favoritos"
   },
   "characterList": {
-    "title": "Personajes de Rick and Morty",
+    "title": "Personajes",
     "searchPlaceholder": "Buscar personajes...",
     "loading": "Cargando personajes...",
     "error": "Error cargando personajes. Por favor intenta de nuevo.",
@@ -32,5 +32,35 @@
     "favorites": "favoritos",
     "clearAllFavorites": "Eliminar todos los favoritos",
     "clearAll": "Limpiar Todo"
+  },
+  "favoriteCharacters": {
+    "title": "Personajes Favoritos",
+    "backToList": "Volver al Listado",
+    "charactersCount": "{count} personajes",
+    "loading": "Cargando tus favoritos...",
+    "error": "Error cargando favoritos",
+    "retry": "Intentar de Nuevo",
+    "noFavorites": "Aún no hay personajes favoritos",
+    "noFavoritesDescription": "No has agregado ningún personaje a tus favoritos aún.",
+    "discoverCharacters": "Descubrir Personajes",
+    "removeFromFavorites": "Quitar de favoritos",
+    "remove": "Quitar",
+    "clearAll": "Limpiar Todos los Favoritos",
+    "confirmClearAll": "¿Estás seguro de que quieres eliminar todos los personajes de favoritos?"
+  },
+  "characterDetail": {
+    "backToList": "Volver al Listado",
+    "loading": "Cargando personaje...",
+    "error": "Error cargando personaje",
+    "retry": "Intentar de Nuevo",
+    "basicInfo": "Información Básica",
+    "origin": "Origen",
+    "location": "Ubicación",
+    "created": "Creado",
+    "episodes": "Episodios"
+  },
+  "navigation": {
+    "characters": "Personajes",
+    "favorites": "Favoritos"
   }
 }

@@ -20,7 +20,7 @@
     "inFavorites": "In Favorites"
   },
   "characterList": {
-    "title": "Rick and Morty Characters",
+    "title": "Characters",
     "searchPlaceholder": "Search characters...",
     "loading": "Loading characters...",
     "error": "Error loading characters. Please try again.",
@@ -32,5 +32,35 @@
     "favorites": "favorites",
     "clearAllFavorites": "Clear all favorites",
     "clearAll": "Clear All"
+  },
+  "favoriteCharacters": {
+    "title": "Favorite Characters",
+    "backToList": "Back to List",
+    "charactersCount": "{count} characters",
+    "loading": "Loading your favorites...",
+    "error": "Error loading favorites",
+    "retry": "Try Again",
+    "noFavorites": "No favorite characters yet",
+    "noFavoritesDescription": "You haven't added any characters to your favorites yet.",
+    "discoverCharacters": "Discover Characters",
+    "removeFromFavorites": "Remove from favorites",
+    "remove": "Remove",
+    "clearAll": "Clear All Favorites",
+    "confirmClearAll": "Are you sure you want to remove all characters from favorites?"
+  },
+  "characterDetail": {
+    "backToList": "Back to List",
+    "loading": "Loading character...",
+    "error": "Error loading character",
+    "retry": "Try Again",
+    "basicInfo": "Basic Information",
+    "origin": "Origin",
+    "location": "Location",
+    "created": "Created",
+    "episodes": "Episodes"
+  },
+  "navigation": {
+    "characters": "Characters",
+    "favorites": "Favorites"
   }
 }

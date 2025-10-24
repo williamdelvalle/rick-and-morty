@@ -58,12 +58,6 @@ const changePage = (page: number) => {
   }
 }
 
-const clearAllFavorites = () => {
-  if (confirm('¿Estás seguro de que quieres eliminar todos los favoritos?')) {
-    clearFavorites()
-  }
-}
-
 onMounted(() => {
   fetchCharacters()
 })
@@ -89,15 +83,6 @@ onMounted(() => {
           />
           <span class="search-box__icon">🔍</span>
         </div>
-
-        <button
-          v-if="favoritesCount > 0"
-          @click="clearAllFavorites"
-          class="clear-favorites-btn"
-          :title="$t('characterList.clearAllFavorites')"
-        >
-          🗑️ {{ $t('characterList.clearAll') }}
-        </button>
       </div>
     </div>
 
@@ -201,6 +186,19 @@ onMounted(() => {
   &__page-info {
     color: $text-color;
     font-weight: 600;
+  }
+}
+
+.favorites-link {
+  padding: $spacing-sm $spacing-md;
+  background: $accent-color;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+
+  &:hover {
+    background: darken($accent-color, 10%);
   }
 }
 

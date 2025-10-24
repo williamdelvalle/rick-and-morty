@@ -1,67 +1,65 @@
 <script setup lang="ts">
-import type { Character } from '@/types/Character';
+import type { Character } from '@/types/Character'
 
 interface Props {
-  character: Character;
-  isFavorite: boolean;
+  character: Character
+  isFavorite: boolean
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  toggleFavorite: [characterId: number];
-}>();
+  toggleFavorite: [characterId: number]
+}>()
 
 const toggleFavorite = () => {
-  emit('toggleFavorite', props.character.id);
-};
+  emit('toggleFavorite', props.character.id)
+}
 </script>
 
 <template>
   <div class="character-card" :class="{ 'character-card--favorite': isFavorite }">
     <div class="character-card__image-container">
-      <img
-        :src="character.image"
-        :alt="character.name"
-        class="character-card__image"
-        loading="lazy"
-      />
+      <router-link :to="`/character/${character.id}`" class="character-card__image-link">
+        <img
+          :src="character.image"
+          :alt="character.name"
+          class="character-card__image"
+          loading="lazy"
+        />
+      </router-link>
       <div class="character-card__status">
         {{ $t(`character.status.${character.status.toLowerCase()}`) }}
       </div>
     </div>
 
     <div class="character-card__content">
-      <h3 class="character-card__name">{{ character.name }}</h3>
+      <h3 class="character-card__name">
+        <router-link :to="`/character/${character.id}`" class="character-card__name-link">
+          {{ character.name }}
+        </router-link>
+      </h3>
 
       <div class="character-card__details">
         <div class="character-card__detail">
-          <span class="character-card__label">
-            {{ $t('character.species') }}:
-          </span>
+          <span class="character-card__label"> {{ $t('character.species') }}: </span>
           <span class="character-card__value">{{ character.species }}</span>
         </div>
 
         <div class="character-card__detail">
-          <span class="character-card__label">
-            {{ $t('character.gender.gender') }}:
-          </span>
+          <span class="character-card__label"> {{ $t('character.gender.gender') }}: </span>
           <span class="character-card__value">
             {{ $t(`character.gender.${character.gender.toLowerCase()}`) }}
           </span>
         </div>
 
         <div class="character-card__detail" v-if="character.type">
-          <span class="character-card__label">
-            {{ $t('character.type') }}:
-          </span>
+          <span class="character-card__label"> {{ $t('character.type') }}: </span>
           <span class="character-card__value">{{ character.type }}</span>
         </div>
 
         <div class="character-card__detail">
-          <span class="character-card__label">
-            {{ $t('character.origin') }}:
-          </span>
+          <span class="character-card__label"> {{ $t('character.origin') }}: </span>
           <span class="character-card__value">{{ character.origin.name }}</span>
         </div>
       </div>
@@ -70,7 +68,9 @@ const toggleFavorite = () => {
         @click="toggleFavorite"
         class="character-card__favorite-btn"
         :class="{ 'character-card__favorite-btn--active': isFavorite }"
-        :aria-label="isFavorite ? $t('character.removeFromFavorites') : $t('character.addToFavorites')"
+        :aria-label="
+          isFavorite ? $t('character.removeFromFavorites') : $t('character.addToFavorites')
+        "
       >
         <span class="character-card__favorite-icon">❤</span>
         {{ isFavorite ? $t('character.inFavorites') : $t('character.addToFavorites') }}
@@ -99,6 +99,26 @@ const toggleFavorite = () => {
 
   &__image-container {
     position: relative;
+  }
+
+  &__image-link {
+    display: block;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__name-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #42b883;
+      text-decoration: underline;
+    }
   }
 
   &__image {
