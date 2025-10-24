@@ -1,3 +1,25 @@
 {
-  "hello": "¡Hola, mundo!"
+  "character": {
+    "status": {
+      "alive": "Vivo",
+      "dead": "Muerto",
+      "unknown": "Desconocido"
+    },
+    "gender": {
+      "female": "Femenino",
+      "male": "Masculino",
+      "genderless": "Sin género",
+      "unknown": "Desconocido"
+    },
+    "species": "Especie",
+    "type": "Tipo",
+    "origin": "Origen"
+  },
+  "characterList": {
+    "title": "Personajes de Rick and Morty",
+    "loading": "Cargando personajes...",
+    "error": "Error cargando personajes. Por favor intenta de nuevo.",
+    "retry": "Intentar de nuevo",
+    "noCharacters": "No se encontraron personajes."
+  }
 }

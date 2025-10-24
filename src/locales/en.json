@@ -1,3 +1,25 @@
 {
-  "hello": "Hello, world!"
+  "character": {
+    "status": {
+      "alive": "Alive",
+      "dead": "Dead",
+      "unknown": "Unknown"
+    },
+    "gender": {
+      "female": "Female",
+      "male": "Male",
+      "genderless": "Genderless",
+      "unknown": "Unknown"
+    },
+    "species": "Species",
+    "type": "Type",
+    "origin": "Origin"
+  },
+  "characterList": {
+    "title": "Rick and Morty Characters",
+    "loading": "Loading characters...",
+    "error": "Error loading characters. Please try again.",
+    "retry": "Try Again",
+    "noCharacters": "No characters found."
+  }
 }
