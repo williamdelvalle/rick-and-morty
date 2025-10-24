@@ -9,17 +9,28 @@
       "female": "Femenino",
       "male": "Masculino",
       "genderless": "Sin género",
-      "unknown": "Desconocido"
+      "unknown": "Desconocido",
+      "gender": "Género"
     },
     "species": "Especie",
     "type": "Tipo",
-    "origin": "Origen"
+    "origin": "Origen",
+    "addToFavorites": "Agregar a favoritos",
+    "removeFromFavorites": "Quitar de favoritos",
+    "inFavorites": "En favoritos"
   },
   "characterList": {
     "title": "Personajes de Rick and Morty",
+    "searchPlaceholder": "Buscar personajes...",
     "loading": "Cargando personajes...",
     "error": "Error cargando personajes. Por favor intenta de nuevo.",
     "retry": "Intentar de nuevo",
-    "noCharacters": "No se encontraron personajes."
+    "noCharacters": "No se encontraron personajes.",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "pageInfo": "Página {current} de {total}",
+    "favorites": "favoritos",
+    "clearAllFavorites": "Eliminar todos los favoritos",
+    "clearAll": "Limpiar Todo"
   }
 }

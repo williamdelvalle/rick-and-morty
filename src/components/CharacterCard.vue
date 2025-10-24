@@ -3,13 +3,22 @@ import type { Character } from '@/types/Character';
 
 interface Props {
   character: Character;
+  isFavorite: boolean;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const emit = defineEmits<{
+  toggleFavorite: [characterId: number];
+}>();
+
+const toggleFavorite = () => {
+  emit('toggleFavorite', props.character.id);
+};
 </script>
 
 <template>
-  <div class="character-card">
+  <div class="character-card" :class="{ 'character-card--favorite': isFavorite }">
     <div class="character-card__image-container">
       <img
         :src="character.image"
@@ -35,7 +44,7 @@ defineProps<Props>();
 
         <div class="character-card__detail">
           <span class="character-card__label">
-            {{ $t('character.gender') }}:
+            {{ $t('character.gender.gender') }}:
           </span>
           <span class="character-card__value">
             {{ $t(`character.gender.${character.gender.toLowerCase()}`) }}
@@ -56,6 +65,16 @@ defineProps<Props>();
           <span class="character-card__value">{{ character.origin.name }}</span>
         </div>
       </div>
+
+      <button
+        @click="toggleFavorite"
+        class="character-card__favorite-btn"
+        :class="{ 'character-card__favorite-btn--active': isFavorite }"
+        :aria-label="isFavorite ? $t('character.removeFromFavorites') : $t('character.addToFavorites')"
+      >
+        <span class="character-card__favorite-icon">❤</span>
+        {{ isFavorite ? $t('character.inFavorites') : $t('character.addToFavorites') }}
+      </button>
     </div>
   </div>
 </template>
@@ -74,6 +93,10 @@ defineProps<Props>();
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   }
 
+  &--favorite {
+    border-color: $accent-color;
+  }
+
   &__image-container {
     position: relative;
   }
@@ -83,6 +106,30 @@ defineProps<Props>();
     height: 250px;
     object-fit: cover;
     display: block;
+  }
+
+  &__status {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+
+    &.status-alive {
+      background-color: #10b981;
+    }
+
+    &.status-dead {
+      background-color: #ef4444;
+    }
+
+    &.status-unknown {
+      background-color: #6b7280;
+    }
   }
 
   &__name {
@@ -114,6 +161,38 @@ defineProps<Props>();
     color: #64748b;
     font-size: 0.875rem;
     text-align: right;
+  }
+
+  &__favorite-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: none;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    color: #64748b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    &:hover {
+      border-color: $accent-color;
+      color: $accent-color;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    &--active {
+      border-color: $accent-color;
+      background: $accent-color;
+      color: white;
+    }
+  }
+
+  &__favorite-icon {
+    font-size: 1.125rem;
   }
 }
 </style>
