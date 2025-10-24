@@ -1,48 +1,185 @@
-# rick-and-morty
+# 🪐 Rick and Morty Vue App
 
-This template should help get you started developing with Vue 3 in Vite.
+Una aplicación web moderna construida con Vue.js 3, TypeScript y Pinia para explorar el universo de Rick and Morty.
 
-## Recommended IDE Setup
+## ✨ Características
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **🔍 Búsqueda en tiempo real** de personajes
+- **❤️ Sistema de favoritos** con persistencia local
+- **📱 Diseño responsive** optimizado para PC
+- **🌐 Internacionalización** (Español/Inglés)
+- **⚡ TypeScript** para mejor desarrollo
+- **🎨 Estilos con SCSS** y variables CSS
+- **🔄 Estado global** con Pinia
+- **🚀 Navegación SPA** con Vue Router
 
-## Recommended Browser Setup
+## 🚀 Comenzando
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+### Prerrequisitos
 
-## Type Support for `.vue` Imports in TS
+- Node.js 16 o superior
+- npm o yarn
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### Instalación
 
-## Customize configuration
+1. **Clonar el repositorio**
+   ```bash
+   git clone <url-del-repositorio>
+   cd rick-and-morty
+   ```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-## Project Setup
+3. **Ejecutar en modo desarrollo**
+   ```bash
+   npm run dev
+   ```
 
-```sh
-npm install
+4. **Abrir en el navegador**
+   ```
+   http://localhost:5173
+   ```
+
+### Comandos Disponibles
+
+```bash
+npm run dev          # Servidor de desarrollo
+npm run build        # Compilar para producción
+npm run preview      # Previsualizar build
+npm run lint         # Linter y formateo
+npm run type-check   # Verificación de tipos
 ```
 
-### Compile and Hot-Reload for Development
+## 🗺️ Guía de Navegación
 
-```sh
-npm run dev
+### Páginas Principales
+
+#### 1. **Lista de Personajes** (`/`)
+- **Acceso**: Página principal o navegación "Personajes"
+- **Funcionalidades**:
+    - Ver todos los personajes en grid
+    - Buscar personajes por nombre
+    - Navegación por páginas
+    - Agregar/quitar favoritos
+    - Click en imagen o nombre para ver detalle
+
+#### 2. **Personajes Favoritos** (`/favorites`)
+- **Acceso**: Menú "Favoritos" (con contador)
+- **Funcionalidades**:
+    - Ver personajes favoritos
+    - Eliminar personajes individualmente
+    - Limpiar todos los favoritos
+    - Acceder al detalle
+
+#### 3. **Detalle del Personaje** (`/character/:id`)
+- **Acceso**: Click en cualquier personaje
+- **Información mostrada**:
+    - Imagen grande
+    - Estado, especie, género
+    - Origen y ubicación
+    - Lista de episodios
+    - Fecha de creación
+
+## 🛠️ Stack Tecnológico
+
+- **Frontend**: Vue.js 3 (Composition API)
+- **Lenguaje**: TypeScript
+- **Build Tool**: Vite
+- **Estado**: Pinia
+- **Routing**: Vue Router 4
+- **i18n**: Vue I18n
+- **Styling**: SCSS
+- **API**: Rick and Morty API
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── CharacterList.vue
+│   └── CharacterCard.vue
+├── pages/
+│   ├── FavoriteCharacters.vue
+│   └── CharacterDetail.vue
+├── stores/
+│   └── favorites.ts
+├── locales/
+│   ├── en.json
+│   └── es.json
+├── types/
+│   └── Character.ts
+├── services/
+│   └── characterService.ts
+├── styles/
+│   ├── main.scss
+│   └── _variables.scss
+├── router/
+│   └── index.ts
+├── App.vue
+└── main.ts
 ```
 
-### Type-Check, Compile and Minify for Production
+## 🔧 Configuración
 
-```sh
-npm run build
+### Variables SCSS
+
+```scss
+$primary-color: #42b883;
+$secondary-color: #35495e;
+$accent-color: #ff6b6b;
+$text-color: #2c3e50;
+
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Rutas
 
-```sh
-npm run lint
+```typescript
+const routes = [
+{ path: '/', name: 'Home', component: CharacterList },
+{ path: '/favorites', name: 'Favorites', component: FavoriteCharacters },
+{ path: '/character/:id', name: 'CharacterDetail', component: CharacterDetail }
+]
 ```
+
+## 🐛 Solución de Problemas
+
+**❌ "Variable $spacing-xl no existe"**
+- Verificar archivo `src/styles/_variables.scss`
+
+**❌ Error de tipos TypeScript**
+- Ejecutar `npm run type-check`
+
+**❌ Favoritos no se persisten**
+- Verificar localStorage del navegador
+
+**❌ API no responde**
+- Verificar conexión a internet
+
+## 📱 Compatibilidad
+
+- **Navegadores**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **Dispositivos**: Optimizado para escritorio
+
+## 🤝 Contribución
+
+1. Fork del proyecto
+2. Crear rama feature
+3. Commit de cambios
+4. Push a la rama
+5. Abrir Pull Request
+
+## 📄 Licencia
+
+MIT License
+
+---
+
+**¡Disfruta explorando el multiverso de Rick and Morty!** 🚀
